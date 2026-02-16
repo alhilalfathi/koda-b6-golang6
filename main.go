@@ -33,6 +33,7 @@ func main() {
 	var ch = make(chan string)
 
 	go func() {
+		fmt.Println("Menunggu Antrian...")
 		for _, d := range data {
 			time.Sleep(time.Second * time.Duration(d.Wait))
 			ch <- d.Name
@@ -43,4 +44,5 @@ func main() {
 	for name := range ch {
 		fmt.Printf("Pesanan %s selesai\n", name)
 	}
+	fmt.Println("\nAntrian selesai")
 }
