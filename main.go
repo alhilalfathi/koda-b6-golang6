@@ -2,35 +2,31 @@ package main
 
 import (
 	"fmt"
+	"koda-b6-golang6/model"
 	"time"
 )
 
-type Data struct {
-	name string
-	wait int
-}
-
 func main() {
-	data := []Data{
+	data := []model.Data{
 		{
-			name: "Adit",
-			wait: 2,
+			Name: "Adit",
+			Wait: 2,
 		},
 		{
-			name: "Anton",
-			wait: 3,
+			Name: "Anton",
+			Wait: 3,
 		},
 		{
-			name: "Reza",
-			wait: 2,
+			Name: "Reza",
+			Wait: 2,
 		},
 		{
-			name: "Arif",
-			wait: 4,
+			Name: "Arif",
+			Wait: 4,
 		},
 		{
-			name: "Aska",
-			wait: 2,
+			Name: "Aska",
+			Wait: 2,
 		},
 	}
 
@@ -38,8 +34,8 @@ func main() {
 
 	go func() {
 		for _, d := range data {
-			time.Sleep(time.Second * time.Duration(d.wait))
-			ch <- d.name
+			time.Sleep(time.Second * time.Duration(d.Wait))
+			ch <- d.Name
 		}
 		close(ch)
 	}()
