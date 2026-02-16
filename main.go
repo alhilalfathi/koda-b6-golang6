@@ -14,7 +14,7 @@ func main() {
 	data := []Data{
 		{
 			name: "Adit",
-			wait: 5,
+			wait: 2,
 		},
 		{
 			name: "Anton",
@@ -41,7 +41,7 @@ func main() {
 			time.Sleep(time.Second * time.Duration(d.wait))
 			ch <- d.name
 		}
-
+		close(ch)
 	}()
 
 	for name := range ch {
